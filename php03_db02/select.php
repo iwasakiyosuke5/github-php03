@@ -109,6 +109,40 @@ $json = json_encode($values,JSON_UNESCAPED_UNICODE);
 <link rel="stylesheet" href="css/range.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <style>div{padding: 10px;font-size:16px;}</style>
+<style>
+        .spinner {
+            display: none;
+            border: 16px solid black;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            /* width: 120px;
+            height: 120px; */
+            /*下記はバージョン違い  */
+
+            width: 6em;
+            height: 6em;
+            margin-top: -3.0em;
+            margin-left: -3.0em;
+            /* border-radius: 50%;
+            border: 0.25em solid #ccc;
+            border-top-color: #333; */
+            animation: spin 500ms linear infinite;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        function showSpinner() {
+            document.getElementById("spinner").style.display = "block";
+        }
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body id="main">
@@ -126,8 +160,9 @@ $json = json_encode($values,JSON_UNESCAPED_UNICODE);
 
 
 <!-- Main[Start] -->
+<div id="spinner" class="spinner"></div>
 <div style="padding-left: 30px;">
-<form id="searchForm" method="POST" action="select.php">
+<form id="searchForm" method="POST" action="select.php"  onsubmit="showSpinner()">
       <input type="text" name="search" placeholder="title/アブストを検索">
       <input type="text" name="searchAuther" placeholder="authorを検索">
       <input type="submit" value="検索">
@@ -138,7 +173,7 @@ $json = json_encode($values,JSON_UNESCAPED_UNICODE);
 <div>
     <div class="container jumbotron">
     <?php if (count($values) > 0): ?>
-  <form action="delete.php" method="post">
+  <form action="delete.php" method="post" onsubmit="showSpinner()">
     <table>
       <tr>
         <th><input type="checkbox" id="selectAll"><br>

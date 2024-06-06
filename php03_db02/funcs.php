@@ -15,7 +15,7 @@ function db_conn(){
         $db_id   = "root";      //アカウント名
         $db_pw   = "";          //パスワード：XAMPPはパスワード無し or MAMPはパスワード”root”に修正してください。
         $db_host = "localhost"; //DBホスト
-        // $db_name = "gsacademy02_php02_db02s";    //データベース名
+        // $db_name = "gsacademy02_php03_db02";    //データベース名
         // $db_id   = "";      //アカウント名
         // $db_pw   = "";          //パスワード：XAMPPはパスワード無し or MAMPはパスワード”root”に修正してください。
         // $db_host = "mysql57.gsacademy02.sakura.ne.jp"; //DBホスト
